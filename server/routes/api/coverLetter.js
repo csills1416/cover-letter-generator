@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { OpenAIApi } = require("openai");
 
 module.exports = function(openai) {
     // POST route to generate a cover letter
-    router.post('/generate-cover-letter', async (req, res) => {
+    router.post('/generate', async (req, res) => {
         const { name, jobTitle, companyName, additionalInfo } = req.body;
 
         try {

@@ -1,19 +1,17 @@
 const express = require('express');
-const { OpenAIApi } = require("openai");
-
+const { OpenAIApi } = require('openai');
 require('dotenv').config();
 
 const app = express();
 const port = 3000;
 
-// OpenAI configuration
+// Initialize OpenAIApi with the API key
 const openai = new OpenAIApi({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
 app.use(express.json());
 
-// Import and use consolidated routes from the routes folder
 const routes = require('./routes/index')(openai); // Adjust the path if necessary
 app.use('/api', routes);
 
