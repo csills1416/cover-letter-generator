@@ -1,0 +1,12 @@
+{
+    "name": "cover-letter-generator",
+    "version": "1.0.0",
+    "description": "A web application to generate personalized cover letters.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"No test specified\" && exit 0"
+    },
+    "author": "Chris Sills",
+    "license": "ISC"
+  }
+  
