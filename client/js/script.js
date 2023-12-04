@@ -1,8 +1,10 @@
+import { generateCoverLetter } from './utils/api.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('inputForm');
     const coverLetterOutput = document.getElementById('coverLetterText');
 
-    form.addEventListener('submit', async function(event) {
+    form.addEventListener('submit', function(event) {
         event.preventDefault();
 
         // Extract data from form
@@ -13,27 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
             additionalInfo: document.getElementById('additionalInfo').value
         };
 
-        try {
-            // Send POST request to the server
-            const response = await fetch('/generate-cover-letter', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
+        // Use the utility function to send a request to the server
+        generateCoverLetter(formData)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Display the generated cover letter
+                coverLetterOutput.textContent = data.coverLetter;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                coverLetterOutput.textContent = 'Error generating cover letter. Please try again.';
             });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const result = await response.json();
-
-            // Display the generated cover letter
-            coverLetterOutput.textContent = result.coverLetter;
-        } catch (error) {
-            console.error('Error:', error);
-            coverLetterOutput.textContent = 'Error generating cover letter. Please try again.';
-        }
     });
 });
