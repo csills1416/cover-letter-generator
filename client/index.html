@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Cover Letter Generator</h1>
+    </header>
+
+    <main>
+        <form id="inputForm">
+            <div class="input-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="jobTitle">Job Title:</label>
+                <input type="text" id="jobTitle" name="jobTitle" required>
+            </div>
+
+            <div class="input-group">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required>
+            </div>
+
+            <div class="input-group">
+                <label for="additionalInfo">Additional Information:</label>
+                <textarea id="additionalInfo" name="additionalInfo"></textarea>
+            </div>
+
+            <button type="submit">Generate Cover Letter</button>
+        </form>
+
+        <section id="coverLetterOutput">
+            <h2>Generated Cover Letter</h2>
+            <div id="coverLetterText"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Cover Letter Generator</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
