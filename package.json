@@ -4,9 +4,11 @@
     "description": "A web application to generate personalized cover letters.",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"No test specified\" && exit 0"
+        "test": "echo \"No test specified\" && exit 0"
     },
     "author": "Chris Sills",
-    "license": "ISC"
-  }
-  
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
